@@ -22,7 +22,21 @@ export class AuthService extends StorageService<any> {
     const normalizedEmail = email.trim().toLowerCase();
     
     const usersStr = localStorage.getItem('users');
-    let users: User[] = usersStr ? JSON.parse(usersStr) : [];
+    let users: any[] = usersStr ? JSON.parse(usersStr) : [];
+    
+    // Safety patch for older seeded data that missed passwords or status
+    let modified = false;
+    users = users.map(u => {
+      if (!u.password || !u.status) {
+        modified = true;
+        return { ...u, password: u.password || '123456', status: u.status || 'Active' };
+      }
+      return u;
+    });
+    
+    if (modified) {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
     
     // Attempt login
     const user = users.find(u => u.email.trim().toLowerCase() === normalizedEmail);

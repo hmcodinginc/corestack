@@ -87,9 +87,9 @@ class RoleService extends StorageService<Role> {
     const existing = await this.getById(id);
     if (!existing) throw new Error('Role not found');
 
-    // Business Rule: Super Admin cannot be archived
-    if (existing.hierarchyLevel === 1 || existing.code === 'SA' || existing.name === 'Super Admin') {
-      throw new Error('The Super Admin role cannot be archived.');
+    // Business Rule: Owner cannot be archived
+    if (existing.hierarchyLevel === 1 || existing.code === 'OWNER' || existing.name === 'Owner') {
+      throw new Error('The Owner role cannot be archived.');
     }
 
     // Business Rule: Cannot archive if employees exist

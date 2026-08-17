@@ -112,15 +112,19 @@ export const DataManagement: React.FC = () => {
           
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <h3 className="text-sm font-bold text-gray-900 border-b pb-2 mb-4">Storage Metrics</h3>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-2">
               <span className="text-sm text-gray-600">Total Registered Size</span>
-              <span className="text-lg font-mono font-bold text-primary">{stats?.formattedSize || '0 KB'}</span>
+              <span className="text-lg font-mono font-bold text-primary whitespace-nowrap">{stats?.formattedSize || '0 KB'}</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
               {stats && Object.entries(stats.counts).map(([key, count]) => (
-                <div key={key} className="flex justify-between items-center bg-gray-50 p-2 rounded border border-gray-100">
-                  <span className="text-xs font-medium text-gray-600 capitalize">{key.replace(/_/g, ' ')}</span>
-                  <span className="text-xs font-bold text-gray-900">{count}</span>
+                <div key={key} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg border border-gray-100 gap-3 min-w-0">
+                  <span className="text-sm font-medium text-gray-600 capitalize truncate min-w-0" title={key.replace(/_/g, ' ')}>
+                    {key.replace(/_/g, ' ')}
+                  </span>
+                  <span className="text-sm font-bold text-gray-900 bg-white px-2 py-1 rounded shadow-sm shrink-0">
+                    {count}
+                  </span>
                 </div>
               ))}
             </div>

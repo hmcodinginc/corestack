@@ -447,8 +447,8 @@ const Footer = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 py-12 md:py-16 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-          <div className="col-span-2 lg:col-span-2">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 mb-12 justify-between">
+          <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl leading-none">C</span>
@@ -457,33 +457,35 @@ const Footer = () => {
                 CoreStack
               </span>
             </div>
-            <p className="text-slate-400 max-w-sm">
+            <p className="text-slate-400">
               The centralized platform for professional firms to manage workflow, clients, employees, and billing.
             </p>
           </div>
           
-          <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Product</h4>
-            <ul className="space-y-3">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#modules" className="hover:text-white transition-colors">Modules</a></li>
-              <li><a href="#security" className="hover:text-white transition-colors">Security</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Resources</h4>
-            <ul className="space-y-3">
-              <li><button onClick={() => setShowContact(true)} className="hover:text-white transition-colors text-left">Contact</button></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Legal</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-            </ul>
+          <div className="flex flex-row gap-8 sm:gap-16 justify-between lg:justify-end flex-1">
+            <div>
+              <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Product</h4>
+              <ul className="space-y-3">
+                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="#modules" className="hover:text-white transition-colors">Modules</a></li>
+                <li><a href="#security" className="hover:text-white transition-colors">Security</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Resources</h4>
+              <ul className="space-y-3">
+                <li><button onClick={() => setShowContact(true)} className="hover:text-white transition-colors text-left">Contact</button></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         
@@ -492,10 +494,10 @@ const Footer = () => {
             © 2026 CoreStack. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+            <a href="mailto:hmcoding.h@gmail.com" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
               <Mail size={16} />
             </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+            <a href="tel:+919106147748" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
               <Phone size={16} />
             </a>
             <a href="#" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
@@ -518,7 +520,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 font-medium">Email Address</p>
-                <a href="mailto:hello@corestack.com" className="text-gray-900 font-semibold hover:text-primary">hello@corestack.com</a>
+                <a href="mailto:hmcoding.h@gmail.com" className="text-gray-900 font-semibold hover:text-primary">hmcoding.h@gmail.com</a>
               </div>
             </div>
             
@@ -528,7 +530,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 font-medium">Phone Number</p>
-                <a href="tel:+1234567890" className="text-gray-900 font-semibold hover:text-primary">+1 (234) 567-890</a>
+                <a href="tel:+919106147748" className="text-gray-900 font-semibold hover:text-primary">+91 91061 47748</a>
               </div>
             </div>
 

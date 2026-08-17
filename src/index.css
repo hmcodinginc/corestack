@@ -13,5 +13,43 @@
 }
 
 body {
-  @apply bg-[var(--color-background)] text-gray-900 antialiased;
+  @apply bg-[var(--color-background)] text-gray-900 antialiased transition-colors duration-200;
 }
+
+/* Global Dark Mode Overrides for hardcoded Tailwind light classes */
+.dark body {
+  background-color: #111827 !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .bg-white {
+  background-color: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border-color: #374151 !important;
+}
+
+.dark .bg-gray-50, .dark .bg-slate-50 {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+}
+
+.dark .border-gray-100, .dark .border-gray-200, .dark .border-slate-100 {
+  border-color: #374151 !important;
+}
+
+.dark .text-gray-900, .dark .text-gray-800, .dark .text-slate-900 {
+  color: #f3f4f6 !important;
+}
+
+.dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500, .dark .text-slate-600 {
+  color: #9ca3af !important;
+}
+
+.dark .bg-\[var\(--color-card\)\] {
+  background-color: #1f2937 !important;
+}
+
+.dark .bg-\[var\(--color-background\)\] {
+  background-color: #111827 !important;
+}
+

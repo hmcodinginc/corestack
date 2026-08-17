@@ -46,10 +46,10 @@ export const SettingsLayout: React.FC = () => {
         breadcrumbs={[{ label: 'Dashboard', path: '/dashboard' }, { label: 'Settings', path: '/settings' }, { label: currentNav.label }]}
       />
 
-      <div className="flex flex-col md:flex-row gap-6 items-start">
+      <div className="flex flex-col md:flex-row gap-6 items-start w-full min-w-0">
         {/* Settings Sidebar */}
-        <div className="w-full md:w-64 shrink-0 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden sticky top-4">
-          <nav className="flex flex-col p-2 space-y-1">
+        <div className="w-full md:w-64 shrink-0 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden md:sticky md:top-4">
+          <nav className="flex flex-row md:flex-col p-2 space-x-1 md:space-x-0 md:space-y-1 overflow-x-auto md:overflow-x-visible custom-scrollbar">
             {SETTINGS_NAV.map((nav) => {
               const Icon = nav.icon;
               return (
@@ -57,7 +57,7 @@ export const SettingsLayout: React.FC = () => {
                   key={nav.path}
                   to={nav.path}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 ${
                       isActive 
                         ? 'bg-primary/10 text-primary' 
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
@@ -83,7 +83,7 @@ export const SettingsLayout: React.FC = () => {
         </div>
 
         {/* Settings Content Area */}
-        <div className="flex-1 w-full bg-white rounded-xl shadow-sm border border-gray-100 min-h-[500px]">
+        <div className="flex-1 w-full min-w-0 bg-white rounded-xl shadow-sm border border-gray-100 min-h-[500px]">
           <Outlet />
         </div>
       </div>

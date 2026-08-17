@@ -13,7 +13,7 @@ export interface Role extends ArchiveEntity {
   name: string;
   code: string;
   description?: string;
-  hierarchyLevel: number; // e.g., 1 for Super Admin, 2 for Partner, etc.
+  hierarchyLevel: number; // e.g., 1 for Owner, 2 for Partner, etc.
   status: StatusType | string;
   color?: string;
   icon?: string;

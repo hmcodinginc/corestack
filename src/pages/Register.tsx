@@ -141,11 +141,16 @@ const Register: React.FC = () => {
         {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Register'}
       </button>
 
-      <div className="mt-4 text-center text-sm text-gray-600">
-        Already have an account?{' '}
-        <Link to="/login" className="text-primary hover:text-primary-dark font-medium">
-          Sign In
-        </Link>
+      <div className="mt-4 text-center text-sm text-gray-600 flex flex-col gap-2">
+        <div>
+          Already have an account?{' '}
+          <Link to="/login" className="text-primary hover:text-primary-dark font-medium transition-colors">
+            Sign In
+          </Link>
+        </div>
+        <div>
+          Return to <Link to="/" className="font-medium text-primary hover:text-primary-dark transition-colors">Marketing site</Link>
+        </div>
       </div>
     </form>
   );

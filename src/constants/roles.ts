@@ -1,5 +1,5 @@
 export const ROLE_HIERARCHY = [
-  'Super Admin',
+  'Owner',
   'Partner',
   'Manager',
   'Senior Accountant',
