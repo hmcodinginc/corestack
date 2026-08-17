@@ -17,7 +17,7 @@ export const AdminGuard: React.FC = () => {
   const { user } = useAuth();
   
   // Hierarchy Level 1-3 = Admin/Management, 4+ = Employee
-  const isAdmin = user && (user.hierarchyLevel ? user.hierarchyLevel <= 3 : ['Super Admin', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
+  const isAdmin = user && (user.hierarchyLevel ? user.hierarchyLevel <= 3 : ['Owner', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
   
   if (!isAdmin) {
     return <Navigate to="/unauthorized" replace />;
@@ -29,18 +29,14 @@ export const AdminGuard: React.FC = () => {
 export const EmployeeGuard: React.FC = () => {
   const { user } = useAuth();
   
-  // Wait, if it's an admin trying to access employee workspace, let them? Or redirect back?
-  // "Super Admin must never be blocked by employee-level data restrictions... The Employee Portal is an additional, separate workspace"
-  // Let's redirect admins out of /workspace to / if they land here, or let them view it?
-  // User prompt: "Super Admin -> Existing Admin Panel, Employee -> Employee Portal"
-  const isEmployee = user && (user.hierarchyLevel ? user.hierarchyLevel >= 4 : !['Super Admin', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
+  // "Owner must never be blocked by employee-level data restrictions... The Employee Portal is an additional, separate workspace"
+  // User prompt: "Owner -> Existing Admin Panel, Employee -> Employee Portal"
+  const isEmployee = user && (user.hierarchyLevel ? user.hierarchyLevel >= 4 : !['Owner', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
   
   if (!isEmployee) {
     return <Navigate to="/dashboard" replace />;
   }
   
-  // We will need a WorkspaceLayout for the employee portal
-  // For now, returning Outlet, App.tsx will wrap with WorkspaceLayout
   return <Outlet />;
 };
 

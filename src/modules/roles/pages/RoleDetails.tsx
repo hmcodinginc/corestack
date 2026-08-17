@@ -144,7 +144,7 @@ export const RoleDetails: React.FC = () => {
               <AlertCircle className="text-yellow-600 shrink-0 mt-0.5" size={20} />
               <div>
                 <h4 className="text-sm font-medium text-yellow-800">Protected Role</h4>
-                <p className="text-xs text-yellow-700 mt-1">This is a core system role (Super Admin) and cannot be archived or permanently deleted.</p>
+                <p className="text-xs text-yellow-700 mt-1">This is a core system role (Owner) and cannot be archived or permanently deleted.</p>
               </div>
             </div>
           )}

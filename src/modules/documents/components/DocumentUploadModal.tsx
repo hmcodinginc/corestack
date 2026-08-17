@@ -243,7 +243,7 @@ export const DocumentUploadModal: React.FC<DocumentUploadModalProps> = ({ isOpen
                 <div className="md:col-span-2">
                    <FormSelect name="clientId" label="Assign to Client" options={clients} />
                 </div>
-                <FormSelect name="status" label="Status" options={[...STATUS_OPTIONS, {label: 'Pending', value: 'PENDING'}, {label: 'Expired', value: 'EXPIRED'}]} />
+                <FormSelect name="status" label="Status" options={[...STATUS_OPTIONS, {label: 'Expired', value: 'EXPIRED'}]} />
                 <FormInput name="expiryDate" label="Expiry Date (Optional)" type="date" />
                 <div className="md:col-span-2">
                    <FormTextarea name="description" label="Description / Comments (Optional)" placeholder="Add any relevant notes about this document..." />

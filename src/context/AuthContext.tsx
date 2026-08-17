@@ -21,7 +21,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   });
 
   useEffect(() => {
-    // Initialize dummy super admin if not exists in local storage
+    // Quick migration to ensure Super Admin is replaced with Owner for existing local storage data
+    ['users', 'roles', 'currentUser'].forEach(key => {
+      const val = localStorage.getItem(key);
+      if (val) {
+        let newVal = val.replace(/Super Admin/g, 'Owner').replace(/SUPER_ADMIN/g, 'OWNER');
+        newVal = newVal.replace(/"firstName":"Super"/g, '"firstName":"Firm"').replace(/"lastName":"Admin"/g, '"lastName":"Owner"');
+        if (newVal !== val) localStorage.setItem(key, newVal);
+      }
+    });
+
+    // Initialize dummy owner if not exists in local storage
     const usersStr = localStorage.getItem('users');
     if (!usersStr || JSON.parse(usersStr).length === 0) {
       localStorage.setItem('users', JSON.stringify([DUMMY_USER]));

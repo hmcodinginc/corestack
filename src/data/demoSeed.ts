@@ -29,7 +29,7 @@ const DEPARTMENTS = [
 ];
 
 const ROLES = [
-  { name: "Super Admin", code: "SUPER_ADMIN", level: 1 },
+  { name: "Owner", code: "OWNER", level: 1 },
   { name: "Partner", code: "PARTNER", level: 2 },
   { name: "Manager", code: "MANAGER", level: 3 },
   { name: "Senior Executive", code: "SENIOR_EXEC", level: 4 },
@@ -351,17 +351,26 @@ export const seedRealisticDemoData = async () => {
     firstName: emp.firstName,
     lastName: emp.lastName,
     role: emp.roleName || 'Employee',
-    hierarchyLevel: roles.find(r => r.name === emp.roleName)?.hierarchyLevel || 7
+    hierarchyLevel: roles.find(r => r.name === emp.roleName)?.hierarchyLevel || 7,
+    password: '123456',
+    status: 'Active',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   }));
   
-  // Add Super Admin explicitly
+  // Add Owner explicitly
+  const ownerRole = roles.find(r => r.name === 'Owner') || roles[0];
   users.push({
     id: '1',
     email: 'admin@demo.com',
-    firstName: 'Super',
-    lastName: 'Admin',
-    role: 'Super Admin',
-    hierarchyLevel: 1
+    firstName: 'Firm',
+    lastName: 'Owner',
+    role: 'Owner',
+    hierarchyLevel: 1,
+    password: '123456',
+    status: 'Active',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   });
 
   const mockDatabase = {

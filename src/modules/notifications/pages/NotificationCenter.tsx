@@ -13,7 +13,7 @@ export const NotificationCenter: React.FC = () => {
   const [filter, setFilter] = useState<'ALL' | 'UNREAD' | 'READ'>('ALL');
   const navigate = useNavigate();
   const { user } = useAuth();
-  const isAdmin = user && (user.hierarchyLevel ? user.hierarchyLevel <= 3 : ['Super Admin', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
+  const isAdmin = user && (user.hierarchyLevel ? user.hierarchyLevel <= 3 : ['Owner', 'Partner', 'Manager'].some(role => user.role?.includes(role)));
 
   const filteredNotifications = notifications.filter(n => {
     if (filter === 'UNREAD') return n.status === 'UNREAD';
@@ -44,7 +44,7 @@ export const NotificationCenter: React.FC = () => {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 flex overflow-hidden min-h-[500px]">
         {/* Sidebar Filters */}
-        <div className="w-64 border-r border-gray-100 p-4 hidden md:block bg-gray-50/50">
+        <div className="w-64 border-r border-gray-100 p-4 hidden md:block bg-gray-50">
            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Status</h3>
            <div className="space-y-1 mb-8">
              <button 
@@ -78,7 +78,7 @@ export const NotificationCenter: React.FC = () => {
              <Button variant="outline" size="sm" className="flex items-center gap-2"><Filter size={14}/> Filter</Button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 bg-gray-50/30">
+          <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
              {filteredNotifications.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-gray-400">
                   <Bell size={48} className="mb-4 opacity-20" />

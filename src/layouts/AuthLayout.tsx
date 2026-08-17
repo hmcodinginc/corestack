@@ -6,7 +6,7 @@ const AuthLayout: React.FC = () => {
   const { isAuthenticated, user } = useAuth();
 
   if (isAuthenticated && user) {
-    const isEmployee = user.hierarchyLevel ? user.hierarchyLevel >= 4 : !['Super Admin', 'Partner', 'Manager'].some(role => user.role?.includes(role));
+    const isEmployee = user.hierarchyLevel ? user.hierarchyLevel >= 4 : !['Owner', 'Partner', 'Manager'].some(role => user.role?.includes(role));
     return <Navigate to={isEmployee ? "/workspace" : "/dashboard"} replace />;
   }
 
